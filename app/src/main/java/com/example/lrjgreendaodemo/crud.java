@@ -49,12 +49,12 @@ public class crud extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.bt_uprad:
                 Intent intent_2 = new Intent(this, SelectTable.class);
-                intent_2.putExtra("extra_data", str_del);
+                intent_2.putExtra("extra_data", str_update);
                 startActivity(intent_2);
                 break;
             case R.id.bt_search:
                 Intent intent_3 = new Intent(this, SelectTable.class);
-                intent_3.putExtra("extra_data", str_del);
+                intent_3.putExtra("extra_data", str_search);
                 startActivity(intent_3);
                 break;
             default:
