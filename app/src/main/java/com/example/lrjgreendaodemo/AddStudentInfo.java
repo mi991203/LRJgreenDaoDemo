@@ -62,7 +62,8 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.bt_add_student_info_save:
                 studentDao.insert(getStudentFromUI());
-
+                Intent intent = new Intent(AddStudentInfo.this, crud.class);
+                startActivity(intent);
                 break;
             default:
                 break;

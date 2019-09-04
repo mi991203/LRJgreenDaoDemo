@@ -45,8 +45,9 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
 
 
                 }else if (data.equals("Search")){
-
-
+                    Log.e("SH", "查询学生信息");
+                    Intent intent_3 = new Intent(this, SearchStudentInfo.class);
+                    startActivity(intent_3);
                 }
                 break;
             case R.id.bt_select_table_course:

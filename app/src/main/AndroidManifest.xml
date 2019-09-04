@@ -20,6 +20,8 @@
         <activity android:name=".crud"></activity>
         <activity android:name=".SelectTable"></activity>
         <activity android:name=".AddStudentInfo"></activity>
+        <activity android:name=".SearchStudentInfo"></activity>
+        <activity android:name=".StudentList"></activity>
     </application>
 
 </manifest>
