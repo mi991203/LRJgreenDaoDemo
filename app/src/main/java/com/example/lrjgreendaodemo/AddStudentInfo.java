@@ -31,6 +31,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         openDb();
 
+        setContentView(R.layout.add_student_info);
         etAddStudentSno = findViewById(R.id.et_add_student_sno);
         etAddStudentSname = findViewById(R.id.et_add_student_sname);
         etAddStudentSsex = findViewById(R.id.et_add_student_ssex);
@@ -61,6 +62,8 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.bt_add_student_info_save:
                 studentDao.insert(getStudentFromUI());
+                Intent intent = new Intent(AddStudentInfo.this, crud.class);
+                startActivity(intent);
                 break;
             default:
                 break;

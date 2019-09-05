@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,7 +12,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
     private Button btSelectTableStudent;
     private Button btSelectTableCourse;
     private Button btSelectTableScore;
-    private String data = getIntent().getStringExtra("extra_data");
+    private String data;
 
     @Override
 
@@ -19,7 +20,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_which_table);
 
-
+        data = getIntent().getStringExtra("extra_data");
         btSelectTableStudent = findViewById(R.id.bt_select_table_student);
         btSelectTableCourse = findViewById(R.id.bt_select_table_course);
         btSelectTableScore = findViewById(R.id.bt_select_table_score);
@@ -34,6 +35,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.bt_select_table_student:
                 if (data.equals("Add")){
+                    Log.e("SH", "添加学生具体信息");
                     Intent intent_0 = new Intent(this, AddStudentInfo.class);
                     startActivity(intent_0);
                 }else if (data.equals("Delete")){
@@ -43,8 +45,9 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
 
 
                 }else if (data.equals("Search")){
-
-
+                    Log.e("SH", "查询学生信息");
+                    Intent intent_3 = new Intent(this, SearchStudentInfo.class);
+                    startActivity(intent_3);
                 }
                 break;
             case R.id.bt_select_table_course:
