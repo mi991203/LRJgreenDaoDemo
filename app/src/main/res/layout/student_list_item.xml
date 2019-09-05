@@ -2,15 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="20dp">
 
     <TextView
         android:id="@+id/tv_student_sno"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
+    <View
+        android:layout_gravity="center"
+        android:background="#000000"
+        android:layout_width="200dp"
+        android:layout_height="1dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,25 +25,37 @@
         <TextView
             android:id="@+id/tv_student_name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#000000" />
 
         <TextView
             android:id="@+id/tv_student_sex"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="#000000" />
 
         <TextView
             android:id="@+id/tv_student_age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>

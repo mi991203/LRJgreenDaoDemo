@@ -26,10 +26,10 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         TextView stu_sex = ((TextView) view.findViewById(R.id.tv_student_sex));
         TextView stu_age = ((TextView) view.findViewById(R.id.tv_student_age));
 
-        stu_sno.setText(student.getSno()+"");
-        stu_name.setText(student.getSname());
-        stu_sex.setText(student.getSsex());
-        stu_age.setText(student.getSage()+"");
+        stu_sno.setText("学号:"+student.getSno()+"");
+        stu_name.setText("姓名:"+student.getSname());
+        stu_sex.setText("性别:"+student.getSsex());
+        stu_age.setText("年龄:"+student.getSage()+"");
 
         return view;
     }
