@@ -23,6 +23,8 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
     private EditText etAddStudentSage;
     private Button btAddStudentReset;
     private Button btAddStudentSave;
+    String string;
+    boolean isUpdate = false;
 
     DaoMaster master;
     DaoSession session;
@@ -34,6 +36,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         openDb();
 
+        string = getIntent().getStringExtra("isUpdate");
         setContentView(R.layout.add_student_info);
         etAddStudentSno = findViewById(R.id.et_add_student_sno);
         etAddStudentSname = findViewById(R.id.et_add_student_sname);
@@ -44,6 +47,17 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
 
         btAddStudentReset.setOnClickListener(this);
         btAddStudentSave.setOnClickListener(this);
+
+        if (string.equals("Update")) {
+            isUpdate = true;
+            String str = getIntent().getStringExtra("update_sno");
+            Student student = studentDao.queryBuilder().where(StudentDao.Properties.Sno.eq(str)).unique();
+
+            etAddStudentSno.setText(student.getSno() + "");
+            etAddStudentSname.setText(student.getSname());
+            etAddStudentSsex.setText(student.getSsex());
+            etAddStudentSage.setText(student.getSage()+"");
+        }
 
     }
 
@@ -64,6 +78,14 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 etAddStudentSage.setText("");
                 break;
             case R.id.bt_add_student_info_save:
+                if (isUpdate){
+                    Student student = studentDao.queryBuilder().where(StudentDao.Properties.Sno.eq(getIntent().getStringExtra("update_sno"))).unique();
+                    try {
+                        studentDao.delete(student);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 studentDao.insert(getStudentFromUI());
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddStudentInfo.this);
                 builder.setMessage("添加成功");

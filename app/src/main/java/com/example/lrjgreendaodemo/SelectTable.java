@@ -37,6 +37,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
                 if (data.equals("Add")){
                     Log.e("SH", "添加学生信息");
                     Intent intent_0 = new Intent(this, AddStudentInfo.class);
+                    intent_0.putExtra("isUpdate", "add");
                     startActivity(intent_0);
                 }else if (data.equals("Delete")){
                     Log.e("SH", "删除学生信息");
