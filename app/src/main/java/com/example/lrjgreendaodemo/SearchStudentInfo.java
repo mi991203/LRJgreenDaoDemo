@@ -16,16 +16,20 @@ import com.example.lrjgreendaodemo.gen.DaoMaster;
 import com.example.lrjgreendaodemo.gen.DaoSession;
 import com.example.lrjgreendaodemo.gen.StudentDao;
 
+import java.util.List;
+
 public class SearchStudentInfo extends AppCompatActivity {
-    DaoMaster master;
-    DaoSession session;
-    StudentDao studentDao;
-    SQLiteDatabase db;
+    private DaoMaster master;
+    private DaoSession session;
+    private StudentDao studentDao;
+    private SQLiteDatabase db;
+    private List<Student> students_list;
 
     EditText etSearchStudentInfoSno;
     Button btSearchStudentInfoBySno;
     String str_et_search_stu_by_sno;
     String str;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class SearchStudentInfo extends AppCompatActivity {
         btSearchStudentInfoBySno = findViewById(R.id.bt_search_student_info_bySno);
         if (str.equals("delete")) {
             btSearchStudentInfoBySno.setText("删除");
+        } else if (str.equals("update")) {
+            btSearchStudentInfoBySno.setText("修改");
         }
 
         btSearchStudentInfoBySno.setOnClickListener(new View.OnClickListener() {
@@ -49,8 +55,7 @@ public class SearchStudentInfo extends AppCompatActivity {
                     Log.e("SH", str_et_search_stu_by_sno);
                     intent.putExtra("search_stu_by_sno", str_et_search_stu_by_sno);
                     startActivity(intent);
-                } else { //如果时删除
-                    boolean flag = false;
+                } else if (str.equals("detele")) { //如果时删除
                     Student student = studentDao.queryBuilder().where(StudentDao.Properties.Sno.eq(etSearchStudentInfoSno.getText().toString())).unique();
                     try {
                         studentDao.delete(student);
@@ -67,6 +72,28 @@ public class SearchStudentInfo extends AppCompatActivity {
                         }
                     });
                     dialog.show();
+                } else if (str.equals("update")) {//如果是修改操作
+                    if (isExist(etSearchStudentInfoSno.getText().toString())){
+
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SearchStudentInfo.this);
+                        builder.setMessage("数据库中没有该学生信息,是否添加?");
+                        builder.setPositiveButton("添加", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(SearchStudentInfo.this, AddStudentInfo.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("放弃", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(SearchStudentInfo.this, crud.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.show();
+                    }
                 }
             }
         });
@@ -78,5 +105,14 @@ public class SearchStudentInfo extends AppCompatActivity {
         master = new DaoMaster(db);
         session = master.newSession();
         studentDao = session.getStudentDao();
+    }
+    private Boolean isExist(String string){
+        students_list = studentDao.queryBuilder().list();
+        for (int i = 0; i <students_list.size() ; i++) {
+            if (Long.toString(students_list.get(i).getSno()).equals(string)){
+                return  true;
+            }
+        }
+        return false;
     }
 }

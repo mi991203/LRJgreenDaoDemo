@@ -1,5 +1,8 @@
 package com.example.lrjgreendaodemo;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -62,8 +65,16 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.bt_add_student_info_save:
                 studentDao.insert(getStudentFromUI());
-                Intent intent = new Intent(AddStudentInfo.this, crud.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddStudentInfo.this);
+                builder.setMessage("添加成功");
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(AddStudentInfo.this, crud.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.show();
                 break;
             default:
                 break;
