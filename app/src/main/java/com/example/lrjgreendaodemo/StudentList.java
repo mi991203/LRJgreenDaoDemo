@@ -20,13 +20,13 @@ import java.util.List;
 public class StudentList extends AppCompatActivity {
     private List<Student> students_list;
     private List<Student> students_list_by_sno;
-    String str;
+    private String str;
     private DaoMaster master;
     private DaoSession session;
     private StudentDao studentDao;
     private SQLiteDatabase db;
-    EditText etSearchStudentBySno;
-    Button btSearchInStudentList;
+    private EditText etSearchStudentBySno;
+    private Button btSearchInStudentList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

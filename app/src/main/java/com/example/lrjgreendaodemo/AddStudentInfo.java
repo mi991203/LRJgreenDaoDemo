@@ -23,7 +23,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
     private EditText etAddStudentSage;
     private Button btAddStudentReset;
     private Button btAddStudentSave;
-    String string;
+    private String string;
     boolean isUpdate = false;
 
     DaoMaster master;

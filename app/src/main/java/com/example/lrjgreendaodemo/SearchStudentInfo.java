@@ -25,10 +25,10 @@ public class SearchStudentInfo extends AppCompatActivity {
     private SQLiteDatabase db;
     private List<Student> students_list;
 
-    EditText etSearchStudentInfoSno;
-    Button btSearchStudentInfoBySno;
-    String str_et_search_stu_by_sno;
-    String str;
+    private EditText etSearchStudentInfoSno;
+    private Button btSearchStudentInfoBySno;
+    private String str_et_search_stu_by_sno;
+    private String str;
 
 
     @Override

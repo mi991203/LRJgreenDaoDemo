@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 public class crud extends AppCompatActivity implements View.OnClickListener {
-    Button btAdd;
-    Button btDel;
-    Button btUprad;
-    Button btSearch;
+    private Button btAdd;
+    private Button btDel;
+    private Button btUprad;
+    private Button btSearch;
     final String str_add = "Add";
     final String str_del = "Delete";
     final String str_update = "Update";
