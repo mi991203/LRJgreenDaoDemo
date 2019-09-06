@@ -30,7 +30,6 @@ public class SearchStudentInfo extends AppCompatActivity {
     private String str_et_search_stu_by_sno;
     private String str;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,8 +107,7 @@ public class SearchStudentInfo extends AppCompatActivity {
                         builder.setNegativeButton("放弃", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(SearchStudentInfo.this, crud.class);
-                                startActivity(intent);
+
                             }
                         });
                         builder.show();

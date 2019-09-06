@@ -70,13 +70,13 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
                     startActivity(intent_1);
                 } else if (data.equals("Update")) {
                     Log.e("SH", "修改课程信息");
-                    Intent intent_2 = new Intent(this, SearchStudentInfo.class);
+                    Intent intent_2 = new Intent(this, SearchCourseInfo.class);
                     intent_2.putExtra("search_or_delete_or_update", "update");
                     startActivity(intent_2);
 
                 } else if (data.equals("Search")) {
                     Log.e("SH", "查询课程信息");
-                    Intent intent_3 = new Intent(this, SearchStudentInfo.class);
+                    Intent intent_3 = new Intent(this, SearchCourseInfo.class);
                     intent_3.putExtra("search_or_delete_or_update", "search");
                     startActivity(intent_3);
                 }

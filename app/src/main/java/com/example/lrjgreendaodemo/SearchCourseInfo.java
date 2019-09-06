@@ -84,8 +84,32 @@ public class SearchCourseInfo extends AppCompatActivity {
                         builder.show();
                     }
 
-                } else if (str.equals("update")) {
+                }
+                else if (str.equals("update")) {
+                    Log.e("SH", "点击了修改");
+                    if (isExist(string)){
+                        Intent intent = new Intent(SearchCourseInfo.this, AddCourseInfo.class);
+                        intent.putExtra("isUpdate", "update");
+                        intent.putExtra("update_cno", string);
+                        startActivity(intent);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SearchCourseInfo.this);
+                        builder.setMessage("课程表中未能找到该课程");
+                        builder.setPositiveButton("添加", new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(SearchCourseInfo.this, AddCourseInfo.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("放弃", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
+                            }
+                        });
+                        builder.show();
+                    }
 
                 } else if (str.equals("search")) {
 

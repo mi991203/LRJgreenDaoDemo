@@ -28,6 +28,9 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
 
     private Button btAddCourseReset;
     private Button btAddCourseSave;
+    private String string;
+    private Boolean isUpdate = false;
+    String str;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,12 +38,24 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.add_course_info);
         openDB();
 
+        string = getIntent().getStringExtra("isUpdate");
         etAddCourseCno = findViewById(R.id.et_add_course_cno);
         etAddCourseCname = findViewById(R.id.et_add_course_cname);
         etAddCourseCtime = findViewById(R.id.et_add_course_ctime);
         etAddCourseCteacher = findViewById(R.id.et_add_course_cteacher);
         btAddCourseReset = findViewById(R.id.bt_add_course_info_reset);
         btAddCourseSave = findViewById(R.id.bt_add_course_info_save);
+
+        if (string.equals("update")) {
+            isUpdate = true;
+            str = getIntent().getStringExtra("update_cno");
+            Course course = courseDao.queryBuilder().where(CourseDao.Properties.Cno.eq(str)).unique();
+            etAddCourseCno.setText(Long.toString(course.getCno()));
+            etAddCourseCname.setText(course.getCname());
+            etAddCourseCtime.setText(course.getCtime() + "");
+            etAddCourseCteacher.setText(course.getTeacher());
+
+        }
 
         btAddCourseReset.setOnClickListener(this);
         btAddCourseSave.setOnClickListener(this);
@@ -64,6 +79,14 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
                 etAddCourseCteacher.setText("");
                 break;
             case R.id.bt_add_course_info_save:
+                if (isUpdate){
+                    Course course = courseDao.queryBuilder().where(CourseDao.Properties.Cno.eq(str)).unique();
+                    try{
+                        courseDao.delete(course);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
                 courseDao.insert(getStudentFromUI());
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddCourseInfo.this);
                 builder.setMessage("添加课程信息成功");
