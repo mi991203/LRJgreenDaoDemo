@@ -24,6 +24,7 @@
         <activity android:name=".StudentList"></activity>
         <activity android:name=".AddCourseInfo"></activity>
         <activity android:name=".SearchCourseInfo"></activity>
+        <activity android:name=".CourseList"></activity>
 
     </application>
 

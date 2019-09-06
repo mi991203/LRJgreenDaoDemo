@@ -49,14 +49,7 @@ public class SearchStudentInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (str.equals("search")) {
-                    Log.e("SH", "点击了查询");
-                    Intent intent = new Intent(SearchStudentInfo.this, StudentList.class);
-                    str_et_search_stu_by_sno = etSearchStudentInfoSno.getText().toString();
-                    Log.e("SH", str_et_search_stu_by_sno);
-                    intent.putExtra("search_stu_by_sno", str_et_search_stu_by_sno);
-                    startActivity(intent);
-                } else if (str.equals("delete")) { //如果是删除
+                if (str.equals("delete")) { //如果是删除
                     if (isExist(etSearchStudentInfoSno.getText().toString())) {
                         Log.e("SH", "点击了删除");
                         Student student = studentDao.queryBuilder().where(StudentDao.Properties.Sno.eq(etSearchStudentInfoSno.getText().toString())).unique();

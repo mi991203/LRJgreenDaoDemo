@@ -33,7 +33,6 @@ public class StudentList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_list);
         openDb();
-        str = getIntent().getStringExtra("search_stu_by_sno");
         students_list_by_sno = new ArrayList<>();
 
         etSearchStudentBySno = findViewById(R.id.et_search_student_by_sno);
@@ -68,7 +67,7 @@ public class StudentList extends AppCompatActivity {
 
     private void load() {
         students_list = studentDao.queryBuilder().list();
-        if (str.length() != 0) {
+        if (str != null) {
             Log.e("SH", "有条件查询学生表");
             for (int i = 0; i < students_list.size(); i++) {
                 if (Long.toString(students_list.get(i).getSno()).equals(str)) {

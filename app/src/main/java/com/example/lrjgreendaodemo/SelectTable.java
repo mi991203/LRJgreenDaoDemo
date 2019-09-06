@@ -52,8 +52,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
 
                 } else if (data.equals("Search")) {
                     Log.e("SH", "查询学生信息");
-                    Intent intent_3 = new Intent(this, SearchStudentInfo.class);
-                    intent_3.putExtra("search_or_delete_or_update", "search");
+                    Intent intent_3 = new Intent(this, StudentList.class);
                     startActivity(intent_3);
                 }
                 break;
@@ -76,8 +75,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
 
                 } else if (data.equals("Search")) {
                     Log.e("SH", "查询课程信息");
-                    Intent intent_3 = new Intent(this, SearchCourseInfo.class);
-                    intent_3.putExtra("search_or_delete_or_update", "search");
+                    Intent intent_3 = new Intent(this, CourseList.class);
                     startActivity(intent_3);
                 }
                 break;
