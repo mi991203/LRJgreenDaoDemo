@@ -83,8 +83,7 @@ public class SearchStudentInfo extends AppCompatActivity {
                         alert_builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(SearchStudentInfo.this, crud.class);
-                                startActivity(intent);
+
                             }
                         });
                         alert_builder.show();

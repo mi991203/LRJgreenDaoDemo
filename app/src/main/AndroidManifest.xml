@@ -23,6 +23,7 @@
         <activity android:name=".SearchStudentInfo"></activity>
         <activity android:name=".StudentList"></activity>
         <activity android:name=".AddCourseInfo"></activity>
+        <activity android:name=".SearchCourseInfo"></activity>
 
     </application>
 

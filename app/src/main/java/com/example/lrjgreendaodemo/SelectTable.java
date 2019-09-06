@@ -65,7 +65,7 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
                     startActivity(intent_0);
                 } else if (data.equals("Delete")) {
                     Log.e("SH", "删除课程信息");
-                    Intent intent_1 = new Intent(this, SearchStudentInfo.class);
+                    Intent intent_1 = new Intent(this, SearchCourseInfo.class);
                     intent_1.putExtra("search_or_delete_or_update", "delete");
                     startActivity(intent_1);
                 } else if (data.equals("Update")) {
