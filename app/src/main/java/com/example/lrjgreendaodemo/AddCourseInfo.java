@@ -1,8 +1,11 @@
 package com.example.lrjgreendaodemo;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,6 @@ import android.widget.EditText;
 import com.example.lrjgreendaodemo.gen.CourseDao;
 import com.example.lrjgreendaodemo.gen.DaoMaster;
 import com.example.lrjgreendaodemo.gen.DaoSession;
-import com.example.lrjgreendaodemo.gen.StudentDao;
 
 public class AddCourseInfo extends AppCompatActivity implements View.OnClickListener {
     private EditText etAddCourseCno;
@@ -40,6 +42,8 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
         btAddCourseReset = findViewById(R.id.bt_add_course_info_reset);
         btAddCourseSave = findViewById(R.id.bt_add_course_info_save);
 
+        btAddCourseReset.setOnClickListener(this);
+        btAddCourseSave.setOnClickListener(this);
 
     }
 
@@ -48,16 +52,6 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
         master = new DaoMaster(db);
         session = master.newSession();
         courseDao = session.getCourseDao();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        load();
-    }
-
-    private void load() {
-
     }
 
     @Override
@@ -71,6 +65,17 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.bt_add_course_info_save:
                 courseDao.insert(getStudentFromUI());
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddCourseInfo.this);
+                builder.setMessage("添加课程信息成功");
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(AddCourseInfo.this, crud.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.show();
+                break;
         }
     }
 

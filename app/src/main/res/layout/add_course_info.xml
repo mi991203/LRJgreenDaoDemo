@@ -76,15 +76,15 @@
             android:layout_height="wrap_content"
             android:text="任课老师:"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:inputType="number"/>
 
         <EditText
             android:id="@+id/et_add_course_cteacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="请输入任课老师:"
-            android:inputType="number" />
+            android:hint="请输入任课老师:" />
     </LinearLayout>
 
     <LinearLayout

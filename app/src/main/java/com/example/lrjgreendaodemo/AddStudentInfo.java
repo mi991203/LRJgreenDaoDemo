@@ -56,7 +56,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
             etAddStudentSno.setText(student.getSno() + "");
             etAddStudentSname.setText(student.getSname());
             etAddStudentSsex.setText(student.getSsex());
-            etAddStudentSage.setText(student.getSage()+"");
+            etAddStudentSage.setText(student.getSage() + "");
         }
 
     }
@@ -78,7 +78,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 etAddStudentSage.setText("");
                 break;
             case R.id.bt_add_student_info_save:
-                if (isUpdate){
+                if (isUpdate) {
                     Student student = studentDao.queryBuilder().where(StudentDao.Properties.Sno.eq(getIntent().getStringExtra("update_sno"))).unique();
                     try {
                         studentDao.delete(student);
@@ -88,7 +88,7 @@ public class AddStudentInfo extends AppCompatActivity implements View.OnClickLis
                 }
                 studentDao.insert(getStudentFromUI());
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddStudentInfo.this);
-                builder.setMessage("添加成功");
+                builder.setMessage("添加学生信息成功");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

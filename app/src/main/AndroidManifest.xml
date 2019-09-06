@@ -22,6 +22,8 @@
         <activity android:name=".AddStudentInfo"></activity>
         <activity android:name=".SearchStudentInfo"></activity>
         <activity android:name=".StudentList"></activity>
+        <activity android:name=".AddCourseInfo"></activity>
+
     </application>
 
 </manifest>
