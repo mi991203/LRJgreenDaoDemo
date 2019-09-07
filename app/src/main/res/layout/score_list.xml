@@ -5,10 +5,11 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:background="#88ffff00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal"
         android:weightSum="4">
@@ -29,13 +30,13 @@
                 android:id="@+id/et_search_score_by_cno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="请输入课程号" />
         </LinearLayout>
 
 
         <Button
-            android:id="@+id/bt_search_in_score_List"
+            android:id="@+id/bt_search_in_score_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -50,7 +51,7 @@
         android:background="#000000" />
 
     <ListView
-        android:id="@+id/course_info_list"
+        android:id="@+id/score_info_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 </LinearLayout>
