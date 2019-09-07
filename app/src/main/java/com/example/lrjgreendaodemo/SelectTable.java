@@ -86,18 +86,18 @@ public class SelectTable extends AppCompatActivity implements View.OnClickListen
                     intent_0.putExtra("isUpdate", "add");
                     startActivity(intent_0);
                 } else if (data.equals("Delete")) {
-                    Log.e("SH", "删除课程信息");
-                    Intent intent_1 = new Intent(this, SearchCourseInfo.class);
+                    Log.e("SH", "删除成绩信息");
+                    Intent intent_1 = new Intent(this, SearchScoreInfo.class);
                     intent_1.putExtra("search_or_delete_or_update", "delete");
                     startActivity(intent_1);
                 } else if (data.equals("Update")) {
-                    Log.e("SH", "修改课程信息");
-                    Intent intent_2 = new Intent(this, SearchCourseInfo.class);
+                    Log.e("SH", "修改成绩信息");
+                    Intent intent_2 = new Intent(this, SearchScoreInfo.class);
                     intent_2.putExtra("search_or_delete_or_update", "update");
                     startActivity(intent_2);
 
                 } else if (data.equals("Search")) {
-                    Log.e("SH", "查询课程信息");
+                    Log.e("SH", "查询成绩信息");
                     Intent intent_3 = new Intent(this, ScoreList.class);
                     startActivity(intent_3);
                 }

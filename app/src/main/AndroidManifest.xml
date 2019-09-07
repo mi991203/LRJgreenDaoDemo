@@ -27,6 +27,7 @@
         <activity android:name=".CourseList"></activity>
         <activity android:name=".AddScoreInfo"></activity>
         <activity android:name=".ScoreList"></activity>
+        <activity android:name=".SearchScoreInfo"></activity>
 
     </application>
 
