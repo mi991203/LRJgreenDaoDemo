@@ -87,7 +87,7 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
                         e.printStackTrace();
                     }
                 }
-                courseDao.insert(getStudentFromUI());
+                courseDao.insert(getCourseFromUI());
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddCourseInfo.this);
                 builder.setMessage("添加课程信息成功");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -102,7 +102,7 @@ public class AddCourseInfo extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private Course getStudentFromUI() {
+    private Course getCourseFromUI() {
         Long cno = Long.parseLong(etAddCourseCno.getText().toString());
         String cname = etAddCourseCname.getText().toString();
         int ctime = Integer.parseInt(etAddCourseCtime.getText().toString());
